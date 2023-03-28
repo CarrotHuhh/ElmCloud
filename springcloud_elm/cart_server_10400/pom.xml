@@ -12,6 +12,11 @@
     </parent>
     <artifactId>cart_server_10400</artifactId>
     <dependencies>
+        <!--加入eureka clinet的依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
         <!--以下是boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
