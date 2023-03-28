@@ -15,6 +15,14 @@
         <module>eureka_server_13000</module>
         <module>eureka_server_13001</module>
         <module>food_server_10201</module>
+        <module>gateway_server_14000</module>
+        <module>business_server_10301</module>
+        <module>cart_server_10401</module>
+        <module>orders_server_10601</module>
+        <module>user_server_10101</module>
+        <module>deliveryaddress_server_10501</module>
+        <module>conﬁg_server_15000</module>
+        <module>config_server_15001</module>
     </modules>
     <packaging>pom</packaging>
     <!-- 统一JAR包和版本号的管理 -->
