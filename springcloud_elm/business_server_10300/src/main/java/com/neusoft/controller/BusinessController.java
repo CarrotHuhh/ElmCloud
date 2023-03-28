@@ -5,12 +5,14 @@ import com.neusoft.po.Business;
 import com.neusoft.po.CommonResult;
 import com.neusoft.service.BusinessService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
-
+@RefreshScope
 @RestController
 @RequestMapping("/BusinessController")
 public class BusinessController {
@@ -19,6 +21,9 @@ public class BusinessController {
     @Autowired
     @Resource(type = FoodFeignClient.class)
     private FoodFeignClient foodFeignClient;
+
+    @Value("${eureka.instance.lease-renewal-interval-in-seconds}")
+    private int renewal;
 
     @GetMapping("/listBusinessByOrderTypeId/{orderTypeId}")
     public CommonResult<List> listBusinessByOrderTypeId(@PathVariable("orderTypeId") Integer orderTypeId)
@@ -30,6 +35,7 @@ public class BusinessController {
     @GetMapping("/getBusinessById/{businessId}")
     public CommonResult<Business> getBusinessById(@PathVariable("businessId") Integer
                                                           businessId) throws Exception {
+        System.out.println(renewal);
         Business business = businessService.getBusinessById(businessId);
 //在商家微服务中调用食品微服务
         CommonResult<List> result = foodFeignClient.listFoodByBusinessId(businessId);

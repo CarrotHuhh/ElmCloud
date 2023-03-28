@@ -4,10 +4,11 @@ import com.neusoft.po.Cart;
 import com.neusoft.po.CommonResult;
 import com.neusoft.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@RefreshScope
 @RestController
 @RequestMapping("/CartController")
 public class CartController {

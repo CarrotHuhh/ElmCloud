@@ -4,8 +4,9 @@ import com.neusoft.po.CommonResult;
 import com.neusoft.po.User;
 import com.neusoft.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
-
+@RefreshScope
 @RestController
 @RequestMapping("/UserController")
 public class UserController {
