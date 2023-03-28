@@ -12,3 +12,5 @@ eureka:
       defaultZone: http://eurekaServer13000:13000/eureka/
   server:
     enable-self-preservation: false     #关闭自我保护机制 #关闭自我保护机制
+    lease-renewal-interval-in-seconds: 5 #续约间隔时间
+    lease-expiration-duration-in-seconds: 15 #续约到期时间

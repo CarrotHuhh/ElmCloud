@@ -41,5 +41,10 @@
             <version>5.1.6</version>
             <scope>runtime</scope>
         </dependency>
+        <!--SpringCloud整合的openFeign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
     </dependencies>
 </project>

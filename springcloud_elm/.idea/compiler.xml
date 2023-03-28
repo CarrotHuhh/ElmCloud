@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="food_server_10200" />
         <module name="deliveryaddress_server_10500" />
+        <module name="food_server_10201" />
         <module name="eureka_server_13001" />
         <module name="eureka_server_13000" />
         <module name="cart_server_10400" />
@@ -16,5 +17,8 @@
         <module name="business_server_10300" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="food_server_10201 (1)" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
