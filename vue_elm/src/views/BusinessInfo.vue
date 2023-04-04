@@ -63,7 +63,7 @@
 </template>
 <script>
 import { getBusinessById } from '@/service/Business';
-import { listcart, removeCart, saveCart, updateCart } from '@/service/Cart';
+import { listcart, removecart, savecart, updatecart } from '@/service/Cart';
 import { listFoodByBusinessId } from '@/service/Food';
 	export default {
 		name:'BusinessInfo',
@@ -151,7 +151,7 @@ import { listFoodByBusinessId } from '@/service/Food';
 				}
 			},
 			saveCart(index){
-				saveCart(this.user.userId,this.businessId,this.foodArr[index].foodId).then(response => {
+				savecart(this.user.userId,this.businessId,this.foodArr[index].foodId).then(response => {
 					if (response.data.result == 1) {
 						//此食品数量要更新为1；
 						this.foodArr[index].quantity = 1;
@@ -170,7 +170,7 @@ import { listFoodByBusinessId } from '@/service/Food';
 				// 	userId: this.user.userId,
 				// 	foodId: this.foodArr[index].foodId
 				// }))
-				updateCart(this.user.userId,this.businessId,this.foodArr[index].foodId,this.foodArr[index].quantity+num).then(response => {
+				updatecart(this.user.userId,this.businessId,this.foodArr[index].foodId,this.foodArr[index].quantity+num).then(response => {
 					if (response.data.result == 1) {
 						//此食品数量要更新为1或-1；
 						this.foodArr[index].quantity += num;
@@ -189,7 +189,7 @@ import { listFoodByBusinessId } from '@/service/Food';
 				// 	foodId: this.foodArr[index].foodId
 				// }))
 				
-				removeCart(this.user.userId,this.businessId,this.foodArr[index].foodId).then(response => {
+				removecart(this.user.userId,this.businessId,this.foodArr[index].foodId).then(response => {
 					if (response.data.result == 1) {
 						//此食品数量要更新为0；
 						this.foodArr[index].quantity = 0;

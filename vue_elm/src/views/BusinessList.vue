@@ -61,7 +61,7 @@ import { listcart } from '@/service/Cart';
 				// 	userId: this.user.userId
 				// }))
 				
-				listcart(this.user.userId).then(response => {
+				listcart1(this.user.userId).then(response => {
 					let cartArr = response.data.result;
 					//遍历所有食品列表
 					for (let businessItem of this.businessArr) {
