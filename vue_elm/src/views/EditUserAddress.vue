@@ -11,8 +11,7 @@
 					联系人：
 				</div>
 				<div class="content">
-					<input type="text" v-model="deliveryAddress.contactName" placeholder="联系人
-姓名">
+					<input type="text" v-model="deliveryAddress.contactName" placeholder="联系人姓名">
 				</div>
 			</li>
 			<li>
@@ -51,7 +50,7 @@
 </template>
 <script>
 	import { getDeliveryAddressById, updateDeliveryAddress } from '@/service/DeliveryAddress';
-import Footer from '../components/Footer.vue';
+	import Footer from '../components/Footer.vue';
 	export default {
 		name: 'EditUserAddress',
 		data() {

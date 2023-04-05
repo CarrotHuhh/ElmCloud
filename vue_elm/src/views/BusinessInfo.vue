@@ -20,7 +20,7 @@
 		
 		<!-- 食品列表部分 -->
 		<ul class="food">
-			<li v-for="(item,index) in foodArr">
+			<li v-for="(item,index) in foodArr" :key="index">
 				<div class="food-left">
 					<img :src="item.foodImg">
 					<div class="food-left-info">

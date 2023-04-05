@@ -27,7 +27,7 @@
 </template>
 <script>
 	import { listBusinessByOrderTypeId } from '@/service/Business';
-import { listcart } from '@/service/Cart';
+	import { listcart1 } from '@/service/Cart';
 	import Footer from '../components/Footer.vue';
 
 	export default {
