@@ -8,7 +8,6 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin("*")
 @RefreshScope
 @RestController
 @RequestMapping("/FoodController")
@@ -18,7 +17,7 @@ public class FoodController {
 
     @GetMapping("/listFoodByBusinessId/{businessId}")
     public CommonResult<List> listFoodByBusinessId(@PathVariable("businessId") Integer
-                                                           businessId) throws Exception {
+                                                           businessId) {
         List<Food> list = foodService.listFoodByBusinessId(businessId);
         return new CommonResult(200, "success", list);
     }

@@ -8,7 +8,6 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin("*")
 @RefreshScope
 @RestController
 @RequestMapping("/CartController")
@@ -27,7 +26,7 @@ public class CartController {
     @GetMapping("/listCart/{userId}/{businessId}")
     public CommonResult<List> listCart(
             @PathVariable("userId") String userId,
-            @PathVariable("businessId") Integer businessId) throws Exception {
+            @PathVariable("businessId") Integer businessId) {
         Cart param = new Cart();
         param.setUserId(userId);
         param.setBusinessId(businessId);

@@ -102,8 +102,10 @@ import { listFoodByBusinessId } from '@/service/Food';
 		},
 		methods:{
 			listCart(){
-				listcart(this.userId,this.businessId).then(response => {
+				listcart(this.user.userId,this.businessId).then(response => {
 					let cartArr = response.data.result;
+					console.log(cartArr)
+					console.log(this.user.userId)
 					for(let foodItem of this.foodArr){
 						foodItem.quantity = 0;
 						for(let cartItem of cartArr){
@@ -171,7 +173,7 @@ import { listFoodByBusinessId } from '@/service/Food';
 				// 	foodId: this.foodArr[index].foodId
 				// }))
 				updatecart(this.user.userId,this.businessId,this.foodArr[index].foodId,this.foodArr[index].quantity+num).then(response => {
-					if (response.data.result == 1) {
+					if (response.data.result != 0) {
 						//此食品数量要更新为1或-1；
 						this.foodArr[index].quantity += num;
 						this.foodArr.sort();
@@ -190,7 +192,7 @@ import { listFoodByBusinessId } from '@/service/Food';
 				// }))
 				
 				removecart(this.user.userId,this.businessId,this.foodArr[index].foodId).then(response => {
-					if (response.data.result == 1) {
+					if (response.data.result != 0) {
 						//此食品数量要更新为0；
 						this.foodArr[index].quantity = 0;
 						this.foodArr.sort();

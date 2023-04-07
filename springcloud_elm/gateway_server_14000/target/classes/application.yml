@@ -1,17 +1,18 @@
 server:
-  port: 14000
+    port: 14000
 spring:
   application:
-    name: gateway-server
+      name: gateway-server
   #下面是关于Gateway的配置
   cloud:
     gateway:
+      # 网关跨域配置start---------------------------------
+      # 开启网关的跨域功能，具体微服务上的跨域需要进行关闭，否则无效
       globalcors:
         cors-configurations:
-          '[\**]':
-            allowedOrigins: "*"
-            allowedHeaders: "*"
-            allowedMethods:
+          '[/**]': # 匹配所有请求
+            allowedOrigins: "*" # 跨域处理 允许所有的域
+            allowedMethods: # 支持的方法
               - GET
               - POST
               - PUT
@@ -41,11 +42,15 @@ spring:
         - id: deliveryaddressServer
           uri: lb://deliveryaddress-server
           predicates:
-            - Path=/DeliveryaddressController/*/**
+            - Path=/DeliveryAddressController/*/**
         - id: ordersServer
           uri: lb://orders-server
           predicates:
             - Path=/OrdersController/*/**
+        - id: walletServer
+          uri: lb://wallet-server
+          predicates:
+            - Path=/VirtualWalletController/*/**
 #eureka配置
 eureka:
   client:

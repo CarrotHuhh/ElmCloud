@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
-@CrossOrigin("*")
 @RefreshScope
 @RestController
 @RequestMapping("/BusinessController")
@@ -35,7 +34,7 @@ public class BusinessController {
 
     @GetMapping("/getBusinessById/{businessId}")
     public CommonResult<Business> getBusinessById(@PathVariable("businessId") Integer
-                                                          businessId) throws Exception {
+                                                          businessId) {
         System.out.println(renewal);
         Business business = businessService.getBusinessById(businessId);
 //在商家微服务中调用食品微服务

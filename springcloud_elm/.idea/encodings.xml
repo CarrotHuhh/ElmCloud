@@ -37,5 +37,9 @@
     <file url="file://$PROJECT_DIR$/user_server_10100/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/user_server_10101/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/user_server_10101/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wallet_server_10700/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wallet_server_10700/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wallet_server_10701/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wallet_server_10701/src/main/resources" charset="UTF-8" />
   </component>
 </project>
