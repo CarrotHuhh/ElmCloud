@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { getVirtualWalletBalance, virtualWalletTopUp, virtualWalletWithdraw } from '@/service/CreditsAndWallet';
 	import Footer from '../components/Footer.vue';
 	export default{
 		inject:['reload'],
@@ -45,10 +46,12 @@
 		},
 		created() {
 			this.user = this.$getSessionStorage('user');
-			this.$axios.post('VirtualWalletController/getVirtualWalletBalance',this.$qs.stringify({
-					userId:this.user.userId
-				})).then(response=>{
-					this.balance=response.data;
+			// this.$axios.post('VirtualWalletController/getVirtualWalletBalance',this.$qs.stringify({
+			// 		userId:this.user.userId
+			// 	}))
+				
+				getVirtualWalletBalance(this.user.userId).then(response=>{
+					this.balance=response.data.result;
 				}).catch(error=>{
 					console.error(error);
 				});
@@ -72,11 +75,13 @@
 					alert('请输入正确数据！');
 				}else{
 					if(this.rechargeOrWithdraw == '充值'){
-						this.$axios.post('VirtualWalletController/virtualWalletTopUp',this.$qs.stringify({
-							userId:this.user.userId,
-							amount:parseFloat(this.sumOfMoney)
-						})).then(response=>{
-							if(response.data>0){
+						// this.$axios.post('VirtualWalletController/virtualWalletTopUp',this.$qs.stringify({
+						// 	userId:this.user.userId,
+						// 	amount:parseFloat(this.sumOfMoney)
+						// }))
+						
+						virtualWalletTopUp(this.user.userId,parseFloat(this.sumOfMoney)).then(response=>{
+							if(response.data.result>0){
 								this.reload();
 							}else{
 								alert("操作失败")
@@ -85,11 +90,13 @@
 							console.error(error);
 						});
 					}else if(this.rechargeOrWithdraw == '提现'){
-						this.$axios.post('VirtualWalletController/virtualWalletWithdraw',this.$qs.stringify({
-							userId:this.user.userId,
-							amount:parseFloat(this.sumOfMoney)
-						})).then(response=>{
-							if(response.data>0){
+						// this.$axios.post('VirtualWalletController/virtualWalletWithdraw',this.$qs.stringify({
+						// 	userId:this.user.userId,
+						// 	amount:parseFloat(this.sumOfMoney)
+						// }))
+						
+						virtualWalletWithdraw(this.user.userId,parseFloat(this.sumOfMoney)).then(response=>{
+							if(response.data.result>0){
 								this.reload();
 							}else{
 								alert("操作失败")

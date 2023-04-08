@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { listTransByUserId } from '@/service/CreditsAndWallet';
 	export default{
 		name:'TransactionFlow',
 		data(){
@@ -30,10 +31,12 @@
 		created(){
 			this.user = this.$getSessionStorage('user');
 			
-			this.$axios.post('VirtualWalletController/listTransByUserId ',this.$qs.stringify({
-				userId:this.user.userId
-			})).then(response=>{
-				this.transactionFlowArr=response.data;
+			// this.$axios.post('VirtualWalletController/listTransByUserId ',this.$qs.stringify({
+			// 	userId:this.user.userId
+			// }))
+			
+			listTransByUserId(this.user.userId).then(response=>{
+				this.transactionFlowArr=response.data.result;
 			}).catch(error=>{
 				console.error(error);
 			});

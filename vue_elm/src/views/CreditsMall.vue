@@ -52,6 +52,7 @@
 </template>
 
 <script>
+import { creditsDeduct } from '@/service/CreditsAndWallet';
 	import Footer from '../components/Footer.vue';
 	export default{
 		name:'creditsMall',
@@ -71,11 +72,13 @@
 				this.credits = credits;
 			},
 			payCredits(){
-				this.$axios.post('CreditsWalletController/creditsDeduct',this.$qs.stringify({
-						userId:this.user.userId,
-						amount:this.credits
-					})).then(response=>{
-						if(response.data == 0){
+				// this.$axios.post('CreditsWalletController/creditsDeduct',this.$qs.stringify({
+				// 		userId:this.user.userId,
+				// 		amount:this.credits
+				// 	}))
+					
+					creditsDeduct(this.user.userId,this.credits).then(response=>{
+						if(response.data.result == 0){
 							alert('积分不足！');
 							this.$router.push({
 								path: '/credits'

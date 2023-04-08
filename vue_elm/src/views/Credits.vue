@@ -26,7 +26,8 @@
 </template>
 
 <script>
-	import Footer from '../components/Footer.vue';
+	import { getCreditsById } from '@/service/CreditsAndWallet';
+import Footer from '../components/Footer.vue';
 	export default{
 		name:'Credits',
 		data() {
@@ -36,10 +37,12 @@
 		},
 		created() {
 			this.user = this.$getSessionStorage('user');
-			this.$axios.post('CreditsWalletController/getCreditsById',this.$qs.stringify({
-					userId:this.user.userId
-				})).then(response=>{
-					this.credits=response.data;
+			// this.$axios.post('CreditsWalletController/getCreditsById',this.$qs.stringify({
+			// 		userId:this.user.userId
+			// 	}))
+				
+				getCreditsById(this.user.userId).then(response=>{
+					this.credits=response.data.result;
 				}).catch(error=>{
 					console.error(error);
 				});

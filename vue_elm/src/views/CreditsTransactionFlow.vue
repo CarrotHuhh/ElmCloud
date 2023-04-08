@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { getCreditsRecordById } from '@/service/CreditsAndWallet';
 	export default{
 		name:'CreditsTransactionFlow',
 		data() {
@@ -27,10 +28,12 @@
 		},
 		created() {
 			this.user = this.$getSessionStorage('user');
-			this.$axios.post('CreditsWalletController/getCreditsRecordById',this.$qs.stringify({
-					userId:this.user.userId
-				})).then(response=>{
-					this.transactionFlow=response.data;
+			// this.$axios.post('CreditsWalletController/getCreditsRecordById',this.$qs.stringify({
+			// 		userId:this.user.userId
+			// 	}))
+				
+				getCreditsRecordById(this.user.userId).then(response=>{
+					this.transactionFlow=response.data.result;
 				}).catch(error=>{
 					console.error(error);
 				});
