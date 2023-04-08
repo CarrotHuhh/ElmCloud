@@ -10,7 +10,7 @@ public interface VirtualWalletService {
 
 	public int deduct(Double amount, String userId) throws Exception;
 
-	public int withdraw(Double amount, String userId, String walletInId) throws Exception;
+	public int withdraw(Double amount, String userId, String walletInId);
 
 	public int topUp(Double amount, String userId, String walletOutId) throws Exception;
 

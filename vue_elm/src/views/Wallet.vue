@@ -80,7 +80,7 @@ import { getVirtualWalletBalance, virtualWalletTopUp, virtualWalletWithdraw } fr
 						// 	amount:parseFloat(this.sumOfMoney)
 						// }))
 						
-						virtualWalletTopUp(this.user.userId,parseFloat(this.sumOfMoney)).then(response=>{
+						virtualWalletTopUp(this.user.userId,parseFloat(this.sumOfMoney),'000001').then(response=>{
 							if(response.data.result>0){
 								this.reload();
 							}else{
@@ -95,7 +95,7 @@ import { getVirtualWalletBalance, virtualWalletTopUp, virtualWalletWithdraw } fr
 						// 	amount:parseFloat(this.sumOfMoney)
 						// }))
 						
-						virtualWalletWithdraw(this.user.userId,parseFloat(this.sumOfMoney)).then(response=>{
+						virtualWalletWithdraw(this.user.userId,parseFloat(this.sumOfMoney),'000001').then(response=>{
 							if(response.data.result>0){
 								this.reload();
 							}else{

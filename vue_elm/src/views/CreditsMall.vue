@@ -77,7 +77,7 @@ import { creditsDeduct } from '@/service/CreditsAndWallet';
 				// 		amount:this.credits
 				// 	}))
 					
-					creditsDeduct(this.user.userId,this.credits).then(response=>{
+					creditsDeduct(this.credits,this.user.userId).then(response=>{
 						if(response.data.result == 0){
 							alert('积分不足！');
 							this.$router.push({

@@ -18,7 +18,7 @@ public class CreditsWalletController {
     private CreditsWalletService creditsWalletService;
 
 
-    @GetMapping("/getCreditsById/{userId}")
+    @PostMapping("/getCreditsById/{userId}")
     public CommonResult<Integer> getCreditsById(
             @PathVariable("userId") String userId) {
         return new CommonResult(200, "success", creditsWalletService.getCreditsById(userId));
@@ -38,7 +38,7 @@ public class CreditsWalletController {
         return new CommonResult(200, "success", creditsWalletService.creditsDeduct(amount, userId));
     }
 
-    @GetMapping("/getCreditsRecordById/{userId}")
+    @PostMapping("/getCreditsRecordById/{userId}")
     public CommonResult<List> getCreditsRecordById(
             @PathVariable("userId") String userId) {
         List<CreditsRecord> list = creditsWalletService.getCreditsRecordById(userId);

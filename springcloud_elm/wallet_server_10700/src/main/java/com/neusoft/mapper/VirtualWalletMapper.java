@@ -1,10 +1,8 @@
 package com.neusoft.mapper;
 
+import org.apache.ibatis.annotations.*;
+
 import com.neusoft.po.VirtualWallet;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface VirtualWalletMapper {
@@ -13,11 +11,11 @@ public interface VirtualWalletMapper {
 	public VirtualWallet getVirtualWalletById(String userId);
 
 	@Update("update virtualwallet set balance=#{balance} where userId=#{userId}")
-	public int updateBalance(Double balance, String userId);
-	
+	public Integer updateBalance(@Param("balance") Double balance, @Param("userId")String userId);
+
 	@Insert("insert into virtualwallet(userId,balance) values(#{userId},0.0)")
 	public int saveVirtualWallet(String userId);
-	
+
 	@Select("select balance from virtualwallet where userId = #{userId}")
 	public Double getVirtualWalletbalance(String userId);
 }

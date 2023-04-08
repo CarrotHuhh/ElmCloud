@@ -46,6 +46,7 @@
 
 <script>
 	import { getOrdersById } from '@/service/Order';
+	import { payByWallet } from '@/service/CreditsAndWallet';
 import Footer from '../components/Footer.vue';
 	export default{
 		inject:['reload'],
@@ -80,20 +81,28 @@ import Footer from '../components/Footer.vue';
 				this.isShowDetailet = !this.isShowDetailet;
 			},
 			payForOrder(){
-				this.$axios.post('VirtualWalletController/payByWallet',this.$qs.stringify({
-					userId:this.user.userId,
-					orderId:this.orderId
-				})).then(response=>{
-					// alert(Math.trunc(this.orders.orderTotal));
-					if(response.data>0){
-						this.$router.push({path:'/orderList'});	
-					}else{
-						alert('支付失败!');
-					}
-				}).catch(error=>{
-					console.error(error);
-				});
-				
+				// this.$axios.post('VirtualWalletController/payByWallet',this.$qs.stringify({
+				// 	userId:this.user.userId,
+				// 	orderId:this.orderId
+				// })).then(response=>{
+				// 	// alert(Math.trunc(this.orders.orderTotal));
+				// 	if(response.data>0){
+				// 		this.$router.push({path:'/orderList'});	
+				// 	}else{
+				// 		alert('支付失败!');
+				// 	}
+				// }).catch(error=>{
+				// 	console.error(error);
+				// });
+					payByWallet(this.orderId,this.user.userId).then(response => {
+						if(response.data.result>0){
+							this.$router.push({path:'/orderList'});	
+						}else{
+							alert('支付失败!');
+						}
+					}).catch(error => {
+						console.error(error);
+					});
 			}
 			
 		 },
