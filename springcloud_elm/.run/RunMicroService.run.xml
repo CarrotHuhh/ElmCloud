@@ -1,0 +1,21 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="RunMicroService" type="CompoundRunConfigurationType">
+    <toRun name="business_server_10300" type="SpringBootApplicationConfigurationType" />
+    <toRun name="business_server_10301" type="SpringBootApplicationConfigurationType" />
+    <toRun name="cart_server_10400" type="SpringBootApplicationConfigurationType" />
+    <toRun name="cart_server_10401" type="SpringBootApplicationConfigurationType" />
+    <toRun name="credits_server_10800" type="SpringBootApplicationConfigurationType" />
+    <toRun name="credits_server_10801" type="SpringBootApplicationConfigurationType" />
+    <toRun name="deliveryaddress_server_10500" type="SpringBootApplicationConfigurationType" />
+    <toRun name="deliveryaddress_server_10501" type="SpringBootApplicationConfigurationType" />
+    <toRun name="food_server_10200" type="SpringBootApplicationConfigurationType" />
+    <toRun name="food_server_10201" type="SpringBootApplicationConfigurationType" />
+    <toRun name="orders_server_10600" type="SpringBootApplicationConfigurationType" />
+    <toRun name="orders_server_10601" type="SpringBootApplicationConfigurationType" />
+    <toRun name="user_server_10100" type="SpringBootApplicationConfigurationType" />
+    <toRun name="user_server_10101" type="SpringBootApplicationConfigurationType" />
+    <toRun name="wallet_server_10700" type="SpringBootApplicationConfigurationType" />
+    <toRun name="wallet_server_10701" type="SpringBootApplicationConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>

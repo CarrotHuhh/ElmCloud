@@ -104,8 +104,6 @@ import { listFoodByBusinessId } from '@/service/Food';
 			listCart(){
 				listcart(this.user.userId,this.businessId).then(response => {
 					let cartArr = response.data.result;
-					console.log(cartArr)
-					console.log(this.user.userId)
 					for(let foodItem of this.foodArr){
 						foodItem.quantity = 0;
 						for(let cartItem of cartArr){

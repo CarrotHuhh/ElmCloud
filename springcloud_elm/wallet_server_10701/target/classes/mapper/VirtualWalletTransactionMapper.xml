@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.neusoft.mapper.VirtualWalletTransactionMapper">
+	<resultMap type="VirtualWalletTransaction" id="transMap">
+		<id column="transactionId" property="transactionId" />
+		<result column="transactionDate" property="transactionDate" />
+		<result column="amount" property="amount" />
+		<result column="walletInId" property="walletInId" />
+		<result column="businessId" property="businessId" />
+		<result column="transactionType" property="transactionType" />
+		<association property="businessName" javaType="String"
+			select="com.neusoft.mapper.BusinessMapper.getBusinessNameById"
+			column="businessId" />
+	</resultMap>
+	<select id="listTransByUserId" parameterType="VirtualWalletTransaction"
+		resultMap="transMap">
+		select * from virtualwallettransaction
+		<where>
+		(transactionType=1 or transactionType=2) and walletOutId=#{walletOutId}
+		or
+		(transactionType=3 and walletInId=#{walletInId})
+		</where>
+		order by transactionId
+	</select>
+</mapper>

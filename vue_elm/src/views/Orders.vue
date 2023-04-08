@@ -84,7 +84,6 @@ import Footer from '../components/Footer.vue';
 			
 			listcart(this.user.userId,this.businessId).then(response=>{
 				this.cartArr=response.data.result;
-				console.log(this.businessId)
 			}).catch(error=>{
 				console.error(error);
 			});

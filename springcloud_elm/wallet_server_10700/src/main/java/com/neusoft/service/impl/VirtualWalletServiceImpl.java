@@ -6,6 +6,7 @@ import com.neusoft.mapper.OrdersMapper;
 import com.neusoft.mapper.VirtualWalletMapper;
 import com.neusoft.mapper.VirtualWalletTransactionMapper;
 import com.neusoft.po.Orders;
+import com.neusoft.service.CreditsWalletService;
 import com.neusoft.service.VirtualWalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +22,8 @@ public class VirtualWalletServiceImpl implements VirtualWalletService {
 	private VirtualWalletTransactionMapper virtualWalletTransactionMapper;
 	@Autowired
 	private OrdersMapper ordersMapper;
-//	@Autowired
-//	private CreditsWalletService creditsWalletService;
+	@Autowired
+	private CreditsWalletService creditsWalletService;
 
 	@Override
 	public VirtualWallet getVirtualWalletById(String userId) {
@@ -88,8 +89,8 @@ public class VirtualWalletServiceImpl implements VirtualWalletService {
 					System.out.println("余额不足");
 					return 0;
 				}
-//				// 添加积分
-//				creditsWalletService.creditsAdd(order.getOrderTotal().intValue(), userId);
+				// 添加积分
+				creditsWalletService.creditsAdd(order.getOrderTotal().intValue(), userId);
 				// 创建流水
 				VirtualWalletTransaction transaction = new VirtualWalletTransaction(order.getOrderTotal(), 1, userId,
 						order.getBusinessId().toString());

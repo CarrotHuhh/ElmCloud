@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="RunPreApps" type="CompoundRunConfigurationType">
+    <toRun name="config_server_15000" type="SpringBootApplicationConfigurationType" />
+    <toRun name="config_server_15001" type="SpringBootApplicationConfigurationType" />
+    <toRun name="eureka_server_13000" type="SpringBootApplicationConfigurationType" />
+    <toRun name="eureka_server_13001" type="SpringBootApplicationConfigurationType" />
+    <toRun name="gateway_server_14000" type="SpringBootApplicationConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>
