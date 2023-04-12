@@ -7,3 +7,37 @@
 |闫佑诚|3020244236|
 |胡亿权|3020244251|
 |韦唯佳|3020244234|
+## 文件结构
+```bash
+.
+├── springcloud_elm					//后端后端项目各微服务代码
+│   ├── business_server_10300
+│   ├── business_server_10301
+│   ├── cart_server_10400
+│   ├── cart_server_10401
+│   ├── config_server_15000
+│   ├── config_server_15001
+│   ├── credits_server_10800
+│   ├── credits_server_10801
+│   ├── deliveryaddress_server_10500
+│   ├── deliveryaddress_server_10501
+│   ├── eureka_server_13000
+│   ├── eureka_server_13001
+│   ├── food_server_10200
+│   ├── food_server_10201
+│   ├── gateway_server_14000
+│   ├── orders_server_10600
+│   ├── orders_server_10601
+│   ├── user_server_10100
+│   ├── user_server_10101
+│   ├── wallet_server_10700
+│   └── wallet_server_10701
+└── vue_elm									//前端项目代码
+    ├── public
+    └── src
+        ├── assets
+        ├── components
+        ├── router
+        ├── service
+        └── views
+```
